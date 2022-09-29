@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DroneServiceImpl implements DroneService {
 
@@ -24,5 +26,14 @@ public class DroneServiceImpl implements DroneService {
 
     logger.info("Drone object was successfully saved");
     return savedDrone;
+  }
+
+  @Override
+  public double findBatteryCapacityById(String id) {
+    logger.info("Fetching battery capacity from drone table for drone id {}", id);
+
+    Optional<Drone> drone = droneRepository.findById(id);
+
+    return drone.map(Drone::getBatteryCapacity).orElse(-1.0);
   }
 }

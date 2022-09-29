@@ -10,4 +10,11 @@ public interface DroneService {
    * @return Saved drone object
    */
   Drone saveDrone(Drone drone);
+
+  /**
+   * Find the battery capacity of a drone specified by the given id.
+   * @param id Drone id
+   * @return The battery capacity of a drone specified by the given id
+   */
+  double findBatteryCapacityById(String id);
 }
