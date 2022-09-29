@@ -26,4 +26,11 @@ public interface DroneService {
    * @return A list of available drones
    */
   List<Drone> findAvailableDrones();
+
+  /**
+   * Find drone for the specified id.
+   * @param id Drone id
+   * @return A drone specified by the given id
+   */
+  Drone findById(String id);
 }

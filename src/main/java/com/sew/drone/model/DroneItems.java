@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -15,16 +14,11 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "medication")
-public class Medication extends Audit {
+@Table(name = "drone_items")
+public class DroneItems extends Audit {
 
-  @Id
-  private String code;
+  @EmbeddedId
+  private DroneItemsPK id;
 
-  private String name;
-
-  private double weight;
-
-  @Lob
-  private byte[] image;
+  private int quantity;
 }

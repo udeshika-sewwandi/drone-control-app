@@ -1,6 +1,7 @@
 package com.sew.drone.service.impl;
 
 import com.sew.drone.model.Drone;
+import com.sew.drone.model.Medication;
 import com.sew.drone.repository.DroneRepository;
 import com.sew.drone.service.DroneService;
 import org.slf4j.Logger;
@@ -43,5 +44,14 @@ public class DroneServiceImpl implements DroneService {
     logger.info("Fetching available drones from drones table");
 
     return droneRepository.findByState("IDLE");
+  }
+
+  @Override
+  public Drone findById(String id) {
+    logger.info("Fetching medication for the given id {}", id);
+
+    Optional<Drone> drone = droneRepository.findById(id);
+
+    return drone.orElse(new Drone());
   }
 }

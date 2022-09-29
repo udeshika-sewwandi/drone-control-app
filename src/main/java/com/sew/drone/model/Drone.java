@@ -12,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "Drone")
+@Table(name = "drone")
 public class Drone extends Audit {
 
   @Id
