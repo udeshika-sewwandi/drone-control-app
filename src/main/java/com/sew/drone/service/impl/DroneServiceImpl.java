@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +36,12 @@ public class DroneServiceImpl implements DroneService {
     Optional<Drone> drone = droneRepository.findById(id);
 
     return drone.map(Drone::getBatteryCapacity).orElse(-1.0);
+  }
+
+  @Override
+  public List<Drone> findAvailableDrones() {
+    logger.info("Fetching available drones from drones table");
+
+    return droneRepository.findByState("IDLE");
   }
 }

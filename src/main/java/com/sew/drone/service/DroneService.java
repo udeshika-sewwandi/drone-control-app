@@ -2,6 +2,8 @@ package com.sew.drone.service;
 
 import com.sew.drone.model.Drone;
 
+import java.util.List;
+
 public interface DroneService {
 
   /**
@@ -17,4 +19,11 @@ public interface DroneService {
    * @return The battery capacity of a drone specified by the given id
    */
   double findBatteryCapacityById(String id);
+
+  /**
+   * Find available drones.
+   *
+   * @return A list of available drones
+   */
+  List<Drone> findAvailableDrones();
 }

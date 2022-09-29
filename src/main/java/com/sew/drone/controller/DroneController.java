@@ -5,14 +5,21 @@ import com.sew.drone.error.BadRequestException;
 import com.sew.drone.model.Drone;
 import com.sew.drone.service.DroneService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/drone")
 public class DroneController {
+
+  private static final Type DRONE_LIST_TYPE = new TypeToken<List<DroneDto>>(){}.getType();
 
   @Autowired
   private DroneService droneService;
@@ -43,6 +50,18 @@ public class DroneController {
     }
 
     return new ResponseEntity<>(droneService.findBatteryCapacityById(id), HttpStatus.OK);
+  }
+
+  @GetMapping("/available")
+  public ResponseEntity<List<DroneDto>> findAvailableDrones() {
+    List<Drone> drones = droneService.findAvailableDrones();
+
+    if(drones != null) {
+      List<DroneDto> droneDtos = modelMapper.map(drones, DRONE_LIST_TYPE);
+      return new ResponseEntity<>(droneDtos, HttpStatus.OK);
+    } else {
+      return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
+    }
 
   }
 }
