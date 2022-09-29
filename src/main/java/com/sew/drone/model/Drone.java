@@ -21,10 +21,10 @@ public class Drone extends Audit {
 
   private String model;
 
-  private int weight;
+  private double weight;
 
   @Column(name = "battery_capacity")
-  private int batteryCapacity;
+  private double batteryCapacity;
 
   private String state;
 }

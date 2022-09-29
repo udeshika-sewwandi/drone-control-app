@@ -15,9 +15,9 @@ public class DroneDto extends AuditDto {
 
   private String model;
 
-  private int weight;
+  private double weight;
 
-  private int batteryCapacity;
+  private double batteryCapacity;
 
   private String state;
 }

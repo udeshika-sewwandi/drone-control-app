@@ -1,6 +1,5 @@
 package com.sew.drone.model;
 
-import com.sew.drone.dto.AuditDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,7 @@ public class Medication extends Audit {
 
   private String name;
 
-  private int weight;
+  private double weight;
 
   @Lob
   private byte[] image;

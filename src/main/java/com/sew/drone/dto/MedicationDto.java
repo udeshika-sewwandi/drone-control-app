@@ -16,7 +16,7 @@ public class MedicationDto extends AuditDto {
 
   private String name;
 
-  private int weight;
+  private double weight;
 
   @JsonIgnore
   private byte[] image;
