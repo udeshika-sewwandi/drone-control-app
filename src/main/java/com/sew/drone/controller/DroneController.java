@@ -30,7 +30,12 @@ public class DroneController {
     }
 
     Drone drone = modelMapper.map(droneDto, Drone.class);
+    Drone drone1 = droneService.saveDrone(drone);
 
-    return new ResponseEntity<>(modelMapper.map(droneService.saveDrone(drone), DroneDto.class), HttpStatus.CREATED);
+    if(drone1 != null) {
+      return new ResponseEntity<>(modelMapper.map(drone1, DroneDto.class), HttpStatus.CREATED);
+    } else {
+      return new ResponseEntity<>(new DroneDto(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }
