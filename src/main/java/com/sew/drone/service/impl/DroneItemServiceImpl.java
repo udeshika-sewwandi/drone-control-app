@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DroneItemServiceImpl implements DroneItemService {
 
@@ -20,5 +22,12 @@ public class DroneItemServiceImpl implements DroneItemService {
   public DroneItems saveDroneItem(DroneItems droneItem) {
     logger.info("Saving drone item to drone_items table");
     return droneItemsRepository.save(droneItem);
+  }
+
+  @Override
+  public List<DroneItems> findItemsById(String id) {
+    logger.info("Fetching data from drone_items table for id {}", id);
+
+    return droneItemsRepository.findById_SerialNumber(id);
   }
 }

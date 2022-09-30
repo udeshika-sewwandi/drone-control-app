@@ -33,4 +33,11 @@ public interface DroneService {
    * @return A drone specified by the given id
    */
   Drone findById(String id);
+
+  /**
+   * Find the number of saved drones.
+   *
+   * @return The number of saved drones
+   */
+  long getNumberOfSavedDrones();
 }

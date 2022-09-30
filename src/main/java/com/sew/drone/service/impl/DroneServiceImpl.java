@@ -1,7 +1,6 @@
 package com.sew.drone.service.impl;
 
 import com.sew.drone.model.Drone;
-import com.sew.drone.model.Medication;
 import com.sew.drone.repository.DroneRepository;
 import com.sew.drone.service.DroneService;
 import org.slf4j.Logger;
@@ -48,10 +47,19 @@ public class DroneServiceImpl implements DroneService {
 
   @Override
   public Drone findById(String id) {
-    logger.info("Fetching medication for the given id {}", id);
+    logger.info("Fetching drone for the given id {}", id);
 
     Optional<Drone> drone = droneRepository.findById(id);
 
     return drone.orElse(new Drone());
   }
+
+  @Override
+  public long getNumberOfSavedDrones() {
+    logger.info("Finding the maximum number of saved drones");
+
+    return droneRepository.count();
+  }
+
+
 }
