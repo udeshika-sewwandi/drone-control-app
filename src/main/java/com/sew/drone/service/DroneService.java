@@ -40,4 +40,10 @@ public interface DroneService {
    * @return The number of saved drones
    */
   long getNumberOfSavedDrones();
+
+  /**
+   * Finds all drones in the database.
+   * @return A list of all drones
+   */
+  List<Drone> findAllDrones();
 }

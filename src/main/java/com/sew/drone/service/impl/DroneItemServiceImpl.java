@@ -1,6 +1,6 @@
 package com.sew.drone.service.impl;
 
-import com.sew.drone.model.DroneItems;
+import com.sew.drone.model.droneitems.DroneItems;
 import com.sew.drone.repository.DroneItemsRepository;
 import com.sew.drone.service.DroneItemService;
 import org.slf4j.Logger;

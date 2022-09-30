@@ -1,11 +1,10 @@
 package com.sew.drone.controller;
 
-import com.sew.drone.dto.DroneDto;
 import com.sew.drone.dto.DroneItemsDto;
 import com.sew.drone.error.BadRequestException;
 import com.sew.drone.error.DroneException;
 import com.sew.drone.model.Drone;
-import com.sew.drone.model.DroneItems;
+import com.sew.drone.model.droneitems.DroneItems;
 import com.sew.drone.model.Medication;
 import com.sew.drone.service.DroneItemService;
 import com.sew.drone.service.DroneService;

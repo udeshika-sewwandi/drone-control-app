@@ -1,7 +1,6 @@
 package com.sew.drone.service;
 
-import com.sew.drone.model.DroneItems;
-import com.sew.drone.model.DroneItemsPK;
+import com.sew.drone.model.droneitems.DroneItems;
 
 import java.util.List;
 

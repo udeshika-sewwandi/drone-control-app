@@ -1,4 +1,4 @@
-package com.sew.drone.model;
+package com.sew.drone.model.droneitems;
 
 import lombok.*;
 

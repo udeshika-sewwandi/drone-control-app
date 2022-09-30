@@ -1,5 +1,6 @@
-package com.sew.drone.model;
+package com.sew.drone.model.dronehistory;
 
+import com.sew.drone.model.Audit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,11 +15,10 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "drone_items")
-public class DroneItems extends Audit {
+@Table(name = "drone_history")
+public class DroneHistory extends Audit {
 
   @EmbeddedId
-  private DroneItemsPK id;
+  private DroneHistoryPK id;
 
-  private int quantity;
 }

@@ -61,5 +61,10 @@ public class DroneServiceImpl implements DroneService {
     return droneRepository.count();
   }
 
+  @Override
+  public List<Drone> findAllDrones() {
+      logger.info("Finding all drones in the database");
 
+      return droneRepository.findAll();
+  }
 }

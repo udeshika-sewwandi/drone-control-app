@@ -1,7 +1,7 @@
 package com.sew.drone.repository;
 
-import com.sew.drone.model.DroneItems;
-import com.sew.drone.model.DroneItemsPK;
+import com.sew.drone.model.droneitems.DroneItems;
+import com.sew.drone.model.droneitems.DroneItemsPK;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
