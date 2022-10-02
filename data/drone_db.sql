@@ -43,3 +43,19 @@ CREATE TABLE drone_history(
     CONSTRAINT pk_DH PRIMARY KEY (serial_number, battery_capacity),
     CONSTRAINT fk_serial_num FOREIGN KEY (serial_number) REFERENCES drone(serial_number)
 );
+
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1001', 'Lightweight', 100.5, 80.3, 'IDLE', 1664698524754, 1664698524754);
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1002', 'Lightweight', 150, 50, 'IDLE',
+1664678760000, 1664678760000);
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1003', 'Heavyweight', 400, 40, 'IDLE',
+1664678780000, 1664678780000);
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1004', 'Middleweight', 200, 20, 'IDLE', 1664678790000, 1664678790000);
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1005', 'Middleweight', 150.5, 60.5, 'IDLE', 1664678795000, 1664678795000);
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1006', 'Heavyweight', 480, 30, 'IDLE', 1664678800000, 1664678800000);
+insert into drone (serial_number, model, weight, battery_capacity, state, created_date,modified_date) values ('1007', 'Lightweight', 120.5, 90.6, 'IDLE', 1664678810000, 1664678810000);
+
+insert into medication (name, weight, code, created_date, modified_date) values ('paracetomol', 10.4, '101', 1664679480000, 1664679480000);
+insert into medication (name, weight, code, created_date, modified_date) values ('asprin', 15.3, '102', 1664679490000, 1664679490000);
+insert into medication (name, weight, code, created_date, modified_date) values ('plasters', 8.5, '103', 1664679500000, 1664679500000);
+insert into medication (name, weight, code, created_date, modified_date) values ('cetrizine', 12, '104', 1664679510000, 1664679510000);
+insert into medication (name, weight, code, created_date, modified_date) values ('insulin', 20, '105', 1664679520000, 1664679520000);
