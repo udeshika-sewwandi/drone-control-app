@@ -16,6 +16,10 @@ public class DroneHistoryServiceImpl implements DroneHistoryService {
   @Autowired
   private DroneHistoryRepository droneHistoryRepository;
 
+  public DroneHistoryServiceImpl(DroneHistoryRepository droneHistoryRepository) {
+    this.droneHistoryRepository = droneHistoryRepository;
+  }
+
   @Override
   public DroneHistory saveDroneHistory(DroneHistory droneHistory) {
     logger.info("Saving drone history");

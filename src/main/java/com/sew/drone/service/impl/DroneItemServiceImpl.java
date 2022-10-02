@@ -18,6 +18,10 @@ public class DroneItemServiceImpl implements DroneItemService {
   @Autowired
   private DroneItemsRepository droneItemsRepository;
 
+  public DroneItemServiceImpl(DroneItemsRepository droneItemsRepository) {
+    this.droneItemsRepository = droneItemsRepository;
+  }
+
   @Override
   public DroneItems saveDroneItem(DroneItems droneItem) {
     logger.info("Saving drone item to drone_items table");

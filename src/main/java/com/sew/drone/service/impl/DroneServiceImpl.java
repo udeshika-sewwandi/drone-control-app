@@ -19,6 +19,10 @@ public class DroneServiceImpl implements DroneService {
   @Autowired
   private DroneRepository droneRepository;
 
+  public DroneServiceImpl(DroneRepository droneRepository) {
+    this.droneRepository = droneRepository;
+  }
+
   @Override
   public Drone saveDrone(Drone drone) {
     logger.info("Saving drone to drone table");
@@ -63,8 +67,8 @@ public class DroneServiceImpl implements DroneService {
 
   @Override
   public List<Drone> findAllDrones() {
-      logger.info("Finding all drones in the database");
+    logger.info("Finding all drones in the database");
 
-      return droneRepository.findAll();
+    return droneRepository.findAll();
   }
 }

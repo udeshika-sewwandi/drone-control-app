@@ -18,6 +18,10 @@ public class MedicationServiceImpl implements MedicationService {
   @Autowired
   private MedicationRepository medicationRepository;
 
+  public MedicationServiceImpl(MedicationRepository medicationRepository) {
+    this.medicationRepository = medicationRepository;
+  }
+
   @Override
   public Medication saveMedication(Medication medication) {
     logger.info("Saving medication to medication table");
