@@ -28,6 +28,12 @@ public class MedicationController {
   @Autowired
   private ModelMapper modelMapper;
 
+  public MedicationController(MedicationService medicationService, ImageService imageService, ModelMapper modelMapper) {
+    this.medicationService = medicationService;
+    this.imageService = imageService;
+    this.modelMapper = modelMapper;
+  }
+
   @PostMapping
   public ResponseEntity<MedicationDto> saveMedication(@RequestBody MedicationDto medicationDto) {
     if(medicationDto == null) {

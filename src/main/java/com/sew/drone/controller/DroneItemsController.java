@@ -40,6 +40,14 @@ public class DroneItemsController {
   @Autowired
   private ModelMapper modelMapper;
 
+  public DroneItemsController (DroneService droneService, DroneItemService droneItemService,
+                               MedicationService medicationService, ModelMapper modelMapper) {
+    this.droneService = droneService;
+    this.droneItemService = droneItemService;
+    this.medicationService = medicationService;
+    this.modelMapper = modelMapper;
+  }
+
   @PostMapping
   public ResponseEntity<DroneItemsDto> loadItemsToDrone(@RequestBody DroneItemsDto dto) {
     if(dto == null) {
@@ -65,7 +73,7 @@ public class DroneItemsController {
 
     for (DroneItems di: droneItems
          ) {
-      Medication medication1 = medicationService.findById(dto.getId().getCode());
+      Medication medication1 = medicationService.findById(di.getId().getCode());
       totalAddedWeight += di.getQuantity() * medication1.getWeight();
     }
 

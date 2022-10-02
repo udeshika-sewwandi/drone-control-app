@@ -14,7 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -27,6 +26,11 @@ public class DroneController {
 
   @Autowired
   private ModelMapper modelMapper;
+
+  public DroneController(DroneService droneService, ModelMapper modelMapper) {
+    this.droneService = droneService;
+    this.modelMapper = modelMapper;
+  }
 
   @PostMapping
   public ResponseEntity<DroneDto> saveDrone(@RequestBody DroneDto droneDto) {
@@ -49,8 +53,8 @@ public class DroneController {
 
   @PutMapping("/{id}/state/{state}")
   public ResponseEntity<DroneDto> updateDroneStatus(@PathVariable String id, @PathVariable String state) {
-    if(state == null) {
-      throw new BadRequestException("Drone status is null");
+    if(state == null || state.isBlank() || id == null || id.isBlank()) {
+      throw new BadRequestException("Drone status or id is null or empty");
     }
 
     Drone drone = droneService.findById(id);
@@ -72,7 +76,7 @@ public class DroneController {
   @GetMapping("/battery-capacity/{id}")
   public ResponseEntity<Double> findBatteryCapacity(@PathVariable String id) {
     if(id.isBlank())       {
-      throw new BadRequestException("The given drone id is null or empty");
+      throw new BadRequestException("The given drone id is empty");
     }
 
     return new ResponseEntity<>(droneService.findBatteryCapacityById(id), HttpStatus.OK);
@@ -82,11 +86,7 @@ public class DroneController {
   public ResponseEntity<List<DroneDto>> findAvailableDrones() {
     List<Drone> drones = droneService.findAvailableDrones();
 
-    if(drones != null) {
-      List<DroneDto> droneDtos = modelMapper.map(drones, DRONE_LIST_TYPE);
-      return new ResponseEntity<>(droneDtos, HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(new ArrayList<>(), HttpStatus.OK);
-    }
+    List<DroneDto> droneDtos = modelMapper.map(drones, DRONE_LIST_TYPE);
+    return new ResponseEntity<>(droneDtos, HttpStatus.OK);
   }
 }
